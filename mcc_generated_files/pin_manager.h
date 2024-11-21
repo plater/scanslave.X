@@ -65,6 +65,26 @@
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
+// get/set SERVICE aliases
+#define SERVICE_TRIS                 TRISAbits.TRISA0
+#define SERVICE_LAT                  LATAbits.LATA0
+#define SERVICE_PORT                 PORTAbits.RA0
+#define SERVICE_WPU                  WPUAbits.WPUA0
+#define SERVICE_OD                   ODCONAbits.ODCA0
+#define SERVICE_ANS                  ANSELAbits.ANSELA0
+#define SERVICE_SetHigh()            do { LATAbits.LATA0 = 1; } while(0)
+#define SERVICE_SetLow()             do { LATAbits.LATA0 = 0; } while(0)
+#define SERVICE_Toggle()             do { LATAbits.LATA0 = ~LATAbits.LATA0; } while(0)
+#define SERVICE_GetValue()           PORTAbits.RA0
+#define SERVICE_SetDigitalInput()    do { TRISAbits.TRISA0 = 1; } while(0)
+#define SERVICE_SetDigitalOutput()   do { TRISAbits.TRISA0 = 0; } while(0)
+#define SERVICE_SetPullup()          do { WPUAbits.WPUA0 = 1; } while(0)
+#define SERVICE_ResetPullup()        do { WPUAbits.WPUA0 = 0; } while(0)
+#define SERVICE_SetPushPull()        do { ODCONAbits.ODCA0 = 0; } while(0)
+#define SERVICE_SetOpenDrain()       do { ODCONAbits.ODCA0 = 1; } while(0)
+#define SERVICE_SetAnalogMode()      do { ANSELAbits.ANSELA0 = 1; } while(0)
+#define SERVICE_SetDigitalMode()     do { ANSELAbits.ANSELA0 = 0; } while(0)
+
 // get/set VEND1 aliases
 #define VEND1_TRIS                 TRISBbits.TRISB0
 #define VEND1_LAT                  LATBbits.LATB0
