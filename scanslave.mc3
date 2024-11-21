@@ -1264,7 +1264,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RD2"/>
-         <value/>
+         <value>COMRQ</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RD3"/>
@@ -1420,7 +1420,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RD2"/>
-         <value>disabled</value>
+         <value>input</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RD3"/>
@@ -1708,7 +1708,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RD2"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RD3"/>
@@ -4772,7 +4772,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="ANSELD"/>
-         <value>254</value>
+         <value>250</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="ANSELE"/>
@@ -5196,7 +5196,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="WPUD"/>
-         <value>0</value>
+         <value>4</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="WPUE"/>
@@ -5312,7 +5312,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="ANSELD" settingAlias="ANSELD2"/>
-         <value>analog</value>
+         <value>digital</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="ANSELD" settingAlias="ANSELD3"/>
@@ -6728,7 +6728,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="WPUD" settingAlias="WPUD2"/>
-         <value>clear</value>
+         <value>set</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="WPUD" settingAlias="WPUD3"/>
@@ -7554,11 +7554,11 @@
       </entry>
       <entry>
          <file>mcc_generated_files/pin_manager.c</file>
-         <hash>586b402def81566224e262d0b6e9797faf2ed136dbd1bf75b6feeb2553175a41</hash>
+         <hash>d865c596c83dae703977b23e2c3ee5456be42c86df4b49615ee5cc349881ed8d</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/pin_manager.h</file>
-         <hash>5c385b7a9321cbe3ca3bc684b38bab6676d23b5e27fb9fdb8f15d389c8c844fc</hash>
+         <hash>e1d989e50f88187131caaeada36d17c5b20f7ad61fd358c88db807f5d768ae55</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>

@@ -189,6 +189,26 @@
 #define RD1_SetAnalogMode()         do { ANSELDbits.ANSELD1 = 1; } while(0)
 #define RD1_SetDigitalMode()        do { ANSELDbits.ANSELD1 = 0; } while(0)
 
+// get/set COMRQ aliases
+#define COMRQ_TRIS                 TRISDbits.TRISD2
+#define COMRQ_LAT                  LATDbits.LATD2
+#define COMRQ_PORT                 PORTDbits.RD2
+#define COMRQ_WPU                  WPUDbits.WPUD2
+#define COMRQ_OD                   ODCONDbits.ODCD2
+#define COMRQ_ANS                  ANSELDbits.ANSELD2
+#define COMRQ_SetHigh()            do { LATDbits.LATD2 = 1; } while(0)
+#define COMRQ_SetLow()             do { LATDbits.LATD2 = 0; } while(0)
+#define COMRQ_Toggle()             do { LATDbits.LATD2 = ~LATDbits.LATD2; } while(0)
+#define COMRQ_GetValue()           PORTDbits.RD2
+#define COMRQ_SetDigitalInput()    do { TRISDbits.TRISD2 = 1; } while(0)
+#define COMRQ_SetDigitalOutput()   do { TRISDbits.TRISD2 = 0; } while(0)
+#define COMRQ_SetPullup()          do { WPUDbits.WPUD2 = 1; } while(0)
+#define COMRQ_ResetPullup()        do { WPUDbits.WPUD2 = 0; } while(0)
+#define COMRQ_SetPushPull()        do { ODCONDbits.ODCD2 = 0; } while(0)
+#define COMRQ_SetOpenDrain()       do { ODCONDbits.ODCD2 = 1; } while(0)
+#define COMRQ_SetAnalogMode()      do { ANSELDbits.ANSELD2 = 1; } while(0)
+#define COMRQ_SetDigitalMode()     do { ANSELDbits.ANSELD2 = 0; } while(0)
+
 // get/set VEND5 aliases
 #define VEND5_TRIS                 TRISDbits.TRISD4
 #define VEND5_LAT                  LATDbits.LATD4

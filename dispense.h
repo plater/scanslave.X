@@ -7,14 +7,7 @@
 
 #ifndef DISPENSE_H
 #define	DISPENSE_H
-#endif
-#include "buffers.h"
 #include "mcc_generated_files/mcc.h"
-//#include "vend.h"
-/*bool price_check(void);
-//Prices per vend 8 x uint8_t*/
-const uint16_t pricestore = 0x00;
-//volatile uint8_t pricevend[8];
 
 /*void dispense(uint8_t chanel);
 */
@@ -33,8 +26,7 @@ __EEPROM_DATA('4','6','0','9',0,0,0,0) ; //48 to 4F
 __EEPROM_DATA(0,0,0,0,0,0,0,0) ; //50 to 57
 __EEPROM_DATA(0,0,0,0,0,0,0,0) ; //58 to 5F
  */
-void vend_nosense(uint8_t chanel);
-void slave_vend(uint8_t cnumber);
+void dispense(uint8_t chanel);
 
 /*void vend_dispense(uint8_t chanel);
 
@@ -52,4 +44,5 @@ void init_pricestore(void);
 
 void update_vends(uint8_t channel);
 */
+#endif
 
