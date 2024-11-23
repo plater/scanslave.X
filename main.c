@@ -54,6 +54,10 @@ void main(void)
 #ifndef __DEBUG
     WDTCON0bits.SEN = 1;
 #endif
+    while(COMRQ_GetValue())
+    {
+        EUSART2_Write('G');
+    }
 
     while (1)
     {
