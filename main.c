@@ -54,18 +54,36 @@ void main(void)
 #ifndef __DEBUG
     WDTCON0bits.SEN = 1;
 #endif
-    while(COMRQ_GetValue())
+/* Wait for COMRQ low 
+ * then wait for COMRQ to return high
+ * then when COMRQ returns low again
+ * transmit G for good and wait
+ * for COMRQ high again
+ */
+/*Setup, 1=1001,2=2502,3=3203,4=8704
+ * ,5=2805,6=3206,7=4207,8=12808
+ * ,9=1009,10=1010,11=1111,12=1212
+ * ,13=1313,14=1414,15=1515,16=1616..*/
+    if(!COMRQ_GetValue())
     {
         EUSART2_Write('G');
+        ClrWdt();
+        __delay_ms(10);
     }
-
+    while(!COMRQ_GetValue())
+    {
+        __delay_ms(10);
+    }
+    
+    
     while (1)
     {
-        ClrWdt();
-        if(!COMRQ_GetValue())
+        while(COMRQ_GetValue())
         {
-            EUSART2_Write('K');
+            ClrWdt();
         }
+        
+        EUSART2_Write('K');
         channel = EUSART2_Read();
         channel = channel - 8;
         dispense(channel);
