@@ -64,29 +64,23 @@ void main(void)
  * ,5=2805,6=3206,7=4207,8=12808
  * ,9=1009,10=1010,11=1111,12=1212
  * ,13=1313,14=1414,15=1515,16=1616..*/
-    if(!COMRQ_GetValue())
-    {
-        EUSART2_Write('G');
-        ClrWdt();
-        __delay_ms(10);
-    }
-    while(!COMRQ_GetValue())
-    {
-        __delay_ms(10);
-    }
-    
     
     while (1)
     {
-        while(COMRQ_GetValue())
+        if(!COMRQ_GetValue())
         {
-            ClrWdt();
+            EUSART2_Write('R');
+            while(!COMRQ_GetValue()){}
+            channel = EUSART2_Read();
+            if((channel < 16) & (channel > 7))
+            {
+                channel = channel - 8;
+                dispense(channel);
+            }
         }
         
-        EUSART2_Write('K');
-        channel = EUSART2_Read();
-        channel = channel - 8;
-        dispense(channel);
+        
+        ClrWdt();
     }
 }
 /**
