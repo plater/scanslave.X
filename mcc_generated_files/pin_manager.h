@@ -209,6 +209,26 @@
 #define COMRQ_SetAnalogMode()      do { ANSELDbits.ANSELD2 = 1; } while(0)
 #define COMRQ_SetDigitalMode()     do { ANSELDbits.ANSELD2 = 0; } while(0)
 
+// get/set COMAK aliases
+#define COMAK_TRIS                 TRISDbits.TRISD3
+#define COMAK_LAT                  LATDbits.LATD3
+#define COMAK_PORT                 PORTDbits.RD3
+#define COMAK_WPU                  WPUDbits.WPUD3
+#define COMAK_OD                   ODCONDbits.ODCD3
+#define COMAK_ANS                  ANSELDbits.ANSELD3
+#define COMAK_SetHigh()            do { LATDbits.LATD3 = 1; } while(0)
+#define COMAK_SetLow()             do { LATDbits.LATD3 = 0; } while(0)
+#define COMAK_Toggle()             do { LATDbits.LATD3 = ~LATDbits.LATD3; } while(0)
+#define COMAK_GetValue()           PORTDbits.RD3
+#define COMAK_SetDigitalInput()    do { TRISDbits.TRISD3 = 1; } while(0)
+#define COMAK_SetDigitalOutput()   do { TRISDbits.TRISD3 = 0; } while(0)
+#define COMAK_SetPullup()          do { WPUDbits.WPUD3 = 1; } while(0)
+#define COMAK_ResetPullup()        do { WPUDbits.WPUD3 = 0; } while(0)
+#define COMAK_SetPushPull()        do { ODCONDbits.ODCD3 = 0; } while(0)
+#define COMAK_SetOpenDrain()       do { ODCONDbits.ODCD3 = 1; } while(0)
+#define COMAK_SetAnalogMode()      do { ANSELDbits.ANSELD3 = 1; } while(0)
+#define COMAK_SetDigitalMode()     do { ANSELDbits.ANSELD3 = 0; } while(0)
+
 // get/set VEND5 aliases
 #define VEND5_TRIS                 TRISDbits.TRISD4
 #define VEND5_LAT                  LATDbits.LATD4

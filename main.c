@@ -54,27 +54,31 @@ void main(void)
 #ifndef __DEBUG
     WDTCON0bits.SEN = 1;
 #endif
-    while(!COMRQ_GetValue()){}
-/* Wait for COMRQ low 
- * then wait for COMRQ to return high
- * then when COMRQ returns low again
- * transmit G for good and wait
- * for COMRQ high again
- */
+    NOP();
 /*Setup, 1=1001,2=2502,3=3203,4=8704
  * ,5=2805,6=3206,7=4207,8=12808
  * ,9=1009,10=1010,11=1111,12=1212
  * ,13=1313,14=1414,15=1515,16=1616..*/
     
+
+ /*!) COMRQ low
+  2) Wait for COMAK low slave acknowledge
+ *3) Read transmission from slave should be 'R' for ready
+ *4) COMRQ high
+ *5) Wait for COMAK high slave acknowledge
+ *6) Transmit channel number to slave */
+
     while (1)
     {
         if(!COMRQ_GetValue())
         {
+            COMAK_SetLow();
+            NOP();
+            NOP();
+            NOP();
             EUSART2_Write('R');
-            NOP();
-            NOP();
-            NOP();
             while(!COMRQ_GetValue()){}
+            COMAK_SetHigh();
             channel = EUSART2_Read();
             if((channel < 15) & (channel > 7))
             {
