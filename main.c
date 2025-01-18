@@ -54,6 +54,7 @@ void main(void)
 #ifndef __DEBUG
     WDTCON0bits.SEN = 1;
 #endif
+    while(!COMRQ_GetValue()){}
 /* Wait for COMRQ low 
  * then wait for COMRQ to return high
  * then when COMRQ returns low again
@@ -70,12 +71,25 @@ void main(void)
         if(!COMRQ_GetValue())
         {
             EUSART2_Write('R');
+            NOP();
+            NOP();
+            NOP();
             while(!COMRQ_GetValue()){}
             channel = EUSART2_Read();
-            if((channel < 16) & (channel > 7))
+            if((channel < 15) & (channel > 7))
             {
                 channel = channel - 8;
                 dispense(channel);
+            }
+            else
+            {
+                NOP();
+                switch(channel)
+                {
+                    case 15 : VEND8_SetHigh();
+                    break;
+                    case 16 : VEND8_SetLow();
+                }
             }
         }
         

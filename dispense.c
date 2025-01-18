@@ -57,12 +57,9 @@ void dispense(uint8_t chanel)
             break;
         case 6 :
             VEND7_SetHigh();
-            break;
-        case 7 :
-            VEND8_SetHigh();
     }
     __delay_ms(1000);
-    LATD = LATD & 0x0F;
+    LATD = LATD & 0x8F;
     LATB = LATB & 0xF0;
     ClrWdt();
 }
