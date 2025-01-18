@@ -34,7 +34,7 @@ void dispense(uint8_t chanel)
 {
     uint8_t  x;
     uint16_t p;
-    ClrWdt();
+//    ClrWdt();
     switch(chanel)
     {
         case 0 :
@@ -61,7 +61,7 @@ void dispense(uint8_t chanel)
     __delay_ms(1000);
     LATD = LATD & 0x8F;
     LATB = LATB & 0xF0;
-    ClrWdt();
+//    ClrWdt();
 }
 #if 0
 bool Read_Service(void)
